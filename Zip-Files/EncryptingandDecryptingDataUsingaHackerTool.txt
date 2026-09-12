@@ -1,0 +1,281 @@
+Encrypting and Decrypting Data Using a Hacker Tool
+
+
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ echo This is a sample text file > sample-1.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ echo This is a sample text file > sample-2.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ echo This is a sample text file > sample-3.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ ls
+sample-1.txt  sample-2.txt  sample-3.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ ls -l            
+total 12
+-rw-rw-r-- 1 codex codex 27 Sep 12 10:25 sample-1.txt
+-rw-rw-r-- 1 codex codex 27 Sep 12 10:25 sample-2.txt
+-rw-rw-r-- 1 codex codex 27 Sep 12 10:25 sample-3.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip –e file-1.zipsample*
+        zip warning: name not matched: file-1.zipsample*
+
+zip error: Nothing to do! (–e.zip)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-1.zip sample*
+Enter password: 
+Verify password: 
+  adding: sample-1.txt (stored 0%)
+  adding: sample-2.txt (stored 0%)
+  adding: sample-3.txt (stored 0%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-2.zip sample*
+Enter password: 
+Verify password: 
+  adding: sample-1.txt (stored 0%)
+  adding: sample-2.txt (stored 0%)
+  adding: sample-3.txt (stored 0%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-3.zip sample*
+Enter password: 
+Verify password: 
+  adding: sample-1.txt (stored 0%)
+  adding: sample-2.txt (stored 0%)
+  adding: sample-3.txt (stored 0%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-4.zip sample*
+Enter password: 
+Verify password: 
+  adding: sample-1.txt (stored 0%)
+  adding: sample-2.txt (stored 0%)
+  adding: sample-3.txt (stored 0%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-5.zip sample*
+Enter password: 
+Verify password: 
+  adding: sample-1.txt (stored 0%)
+  adding: sample-2.txt (stored 0%)
+  adding: sample-3.txt (stored 0%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ ls -l
+total 32
+-rw-rw-r-- 1 codex codex 643 Sep 12 10:30 file-1.zip
+-rw-rw-r-- 1 codex codex 643 Sep 12 10:32 file-2.zip
+-rw-rw-r-- 1 codex codex 643 Sep 12 10:32 file-3.zip
+-rw-rw-r-- 1 codex codex 643 Sep 12 10:33 file-4.zip
+-rw-rw-r-- 1 codex codex 643 Sep 12 10:33 file-5.zip
+-rw-rw-r-- 1 codex codex  27 Sep 12 10:25 sample-1.txt
+-rw-rw-r-- 1 codex codex  27 Sep 12 10:25 sample-2.txt
+-rw-rw-r-- 1 codex codex  27 Sep 12 10:25 sample-3.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ unzip file-1.zip
+Archive:  file-1.zip
+[file-1.zip] sample-1.txt password: 
+password incorrect--reenter: 
+password incorrect--reenter: 
+   skipping: sample-1.txt            incorrect password
+[file-1.zip] sample-2.txt password: 
+password incorrect--reenter: 
+password incorrect--reenter: 
+   skipping: sample-2.txt            incorrect password
+[file-1.zip] sample-3.txt password: 
+password incorrect--reenter:                                                                              
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip –h
+Command 'fcrackzip' not found, but can be installed with:
+sudo apt install fcrackzip
+Do you want to install it? (N/y)y
+sudo apt install fcrackzip
+[sudo] password for codex: 
+Installing:                     
+  fcrackzip
+                                                                             
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 1943
+  Download size: 27.5 kB
+  Space needed: 81.9 kB / 61.9 MB available
+
+Ign:1 http://kali.download/kali kali-rolling/main amd64 fcrackzip amd64 1.0-12
+Ign:1 http://kali.download/kali kali-rolling/main amd64 fcrackzip amd64 1.0-12
+Ign:1 http://kali.download/kali kali-rolling/main amd64 fcrackzip amd64 1.0-12
+Err:1 http://kali.download/kali kali-rolling/main amd64 fcrackzip amd64 1.0-12
+  Could not connect to kali.download:80 (2606:4700::6811:feef). - connect (111: Connection refused) Could not connect to kali.download:80 (2606:4700::6811:fdef). - connect (111: Connection refused) Could not connect to kali.download:80 (104.17.254.239). - connect (111: Connection refused) Could not connect to kali.download:80 (104.17.253.239). - connect (111: Connection refused)
+  Unable to connect to kali.download:http:
+Error: Failed to fetch http://kali.download/kali/pool/main/f/fcrackzip/fcrackzip_1.0-12_amd64.deb  Unable to connect to kali.download:http:
+Error: Unable to fetch some archives, maybe run apt update or try with --fix-missing?
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip   
+Command 'fcrackzip' not found, but can be installed with:
+sudo apt install fcrackzip
+Do you want to install it? (N/y)y
+sudo apt install fcrackzip
+Installing:                     
+  fcrackzip
+                                                                             
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 1943
+  Download size: 27.5 kB
+  Space needed: 81.9 kB / 60.4 MB available
+
+Get:1 http://kali.download/kali kali-rolling/main amd64 fcrackzip amd64 1.0-12 [27.5 kB]
+Fetched 27.5 kB in 2s (13.4 kB/s)    
+Selecting previously unselected package fcrackzip.
+(Reading database… 425985 files and directories currently installed.)
+Preparing to unpack …/fcrackzip_1.0-12_amd64.deb…
+Unpacking fcrackzip (1.0-12)…
+Setting up fcrackzip (1.0-12)…
+Processing triggers for man-db (2.13.1-1)…
+Processing triggers for kali-menu (2026.1.5)…
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -h
+
+fcrackzip version 1.0, a fast/free zip password cracker
+written by Marc Lehmann <pcg@goof.com> You can find more info on
+http://www.goof.com/pcg/marc/
+
+USAGE: fcrackzip
+          [-b|--brute-force]            use brute force algorithm
+          [-D|--dictionary]             use a dictionary
+          [-B|--benchmark]              execute a small benchmark
+          [-c|--charset characterset]   use characters from charset
+          [-h|--help]                   show this message
+          [--version]                   show the version of this program
+          [-V|--validate]               sanity-check the algorithm
+          [-v|--verbose]                be more verbose
+          [-p|--init-password string]   use string as initial password/file
+          [-l|--length min-max]         check password with length min to max
+          [-u|--use-unzip]              use unzip to weed out wrong passwords
+          [-m|--method num]             use method number "num" (see below)
+          [-2|--modulo r/m]             only calculcate 1/m of the password
+          file...                    the zipfiles to crack
+
+methods compiled in (* = default):
+
+ 0: cpmask
+ 1: zip1
+*2: zip2, USE_MULT_TAB
+
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-4 file-1.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+
+
+PASSWORD FOUND!!!!: pw == H
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-4 file-5.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ unzip file-5.zip             
+Archive:  file-5.zip
+[file-5.zip] sample-1.txt password: 
+password incorrect--reenter: 
+password incorrect--reenter: 
+   skipping: sample-1.txt            incorrect password
+[file-5.zip] sample-2.txt password:                                                                              
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-4 file-5.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-4 file-2.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+
+
+PASSWORD FOUND!!!!: pw == HH
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-4 file-5.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-5 file-5.zip
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+checking pw HG?M~                                   
+
+PASSWORD FOUND!!!!: pw == HHHHH
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-5 SPH 313_Computational physics.pdf 
+skipping 'SPH': No such file or directory
+skipping '313_Computational': No such file or directory
+skipping 'physics.pdf': No such file or directory
+no usable files found
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-5 ssp.pdf                          
+found id 46445025, 'ssp.pdf' is not a zipfile ver 2.xx, skipping
+no usable files found
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e ssp.pdf            
+Enter password: 
+Verify password: 
+        zip warning: missing end signature--probably not a zip file (did you
+        zip warning: remember to use binary mode when you transferred it?)
+        zip warning: (if you are trying to read a damaged archive try -F)
+
+zip error: Zip file structure invalid (ssp.pdf)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e file-6.zip ssp.pdf                          
+Enter password: 
+Verify password: 
+  adding: ssp.pdf (deflated 1%)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ fcrackzip -vul 1-10 file-5.zip                     
+found file 'sample-1.txt', (size cp/uc     39/    27, flags 9, chk 5329)
+found file 'sample-2.txt', (size cp/uc     39/    27, flags 9, chk 532b)
+found file 'sample-3.txt', (size cp/uc     39/    27, flags 9, chk 532c)
+checking pw HG?M~                                   
+
+PASSWORD FOUND!!!!: pw == HHHHH
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ unzip file-6.zip                                    
+Archive:  file-6.zip
+[file-6.zip] ssp.pdf password: 
+password incorrect--reenter: 
+password incorrect--reenter:                                                                              
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ zip -e ssp.pdf                
+Enter password: 
+Verify password: 
+        zip warning: missing end signature--probably not a zip file (did you
+        zip warning: remember to use binary mode when you transferred it?)
+        zip warning: (if you are trying to read a damaged archive try -F)
+
+zip error: Zip file structure invalid (ssp.pdf)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/Zip-Files]
+└─$ mousepad EncryptingandDecryptingDataUsingaHackerTool.txt
+
