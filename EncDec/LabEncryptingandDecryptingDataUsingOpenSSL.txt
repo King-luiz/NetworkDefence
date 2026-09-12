@@ -1,0 +1,115 @@
+Lab - Encrypting and Decrypting Data Using Open SSL
+
+
+┌──(codex㉿kali)-[~]
+└─$ ls
+Desktop    Downloads  JCrypTool  MyNotes.txt  Public     Videos
+Documents  Holmes     Music      Pictures     Templates
+                                                                             
+┌──(codex㉿kali)-[~]
+└─$ cd Holmes    
+                                                                             
+┌──(codex㉿kali)-[~/Holmes]
+└─$ ls
+BruteForce  WhatsappBOT
+                                                                             
+┌──(codex㉿kali)-[~/Holmes]
+└─$ mkdir EncDec                   
+                                                                             
+┌──(codex㉿kali)-[~/Holmes]
+└─$ cd EncDec
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ mousepad letter_to_grandma.txt
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ cat letter_to_grandma.txt
+Hi Grandma,
+
+I am writing this letter to thank you for the chocolate chipcookies you sent me. I got them this morning and I have already eaten half ofthe box! They are absolutely delicious!
+
+I wish you all the best. Love,
+
+Your cookie-eater grandchild.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc -inletter_to_grandma.txt -out message.enc
+aes-256-cbc: Unknown option or cipher: inletter_to_grandma.txt
+aes-256-cbc: Use -help for summary.
+40D790001C7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:../crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (inletter_to_grandma.txt : 0), Properties (<null>)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc -inletter_to_grandma.txt -out message.enc
+aes-256-cbc: Unknown option or cipher: inletter_to_grandma.txt
+aes-256-cbc: Use -help for summary.
+40C72B5E627F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:../crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (inletter_to_grandma.txt : 0), Properties (<null>)
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc -in letter_to_grandma.txt -out message.enc
+enter AES-256-CBC encryption password:
+Verifying - enter AES-256-CBC encryption password:
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ cat message.enc
+Salted__Gs8i��1�~����
+                     <�9Jmݖ�ʩr����R#�܇���؋��;��$،��X����uF�)�=����r����)��\�h&s�:ߙ^�,1N�� �}�<`u-����!Y�?�RïDČh�9z�絹$7Î����h���鞑s -S���レ��|�Äf'#5�&��>p��      �x�ę�p")�3lp    ��۪z���*�!'�B����4ȁ�����yQl����/�10C �:ݽ��#@T��w�"O�                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc -a -in letter_to_grandma.txt -out message.enc
+enter AES-256-CBC encryption password:
+Verifying - enter AES-256-CBC encryption password:
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ cat message.enc                                                  
+U2FsdGVkX18FdZkXBcLz9wILe36msWYpW+p/3QYUZivU+OP40W9fQ/+BRckG3oxB
+PWa2sfd0XJqaI2XIMc7wXZfs6Kvoq1gPBcLmH2C4wrdDsvMDIQbN+ydn88fVHZrG
+xJhqWSLo8F6IXRgwcsE9AVQ45q1d2K//QyN4u58LnNUE9iWY2lrhBol609zRv0X6
+qhD1hMsdbBMzyc19UWG7EFxvyOXi6emF/BGf/jmNz3lXgStlLitYxkJh6HYLrfuk
+AL3h+CVgySk6LSHpTMJuZbGzr+2iMpdi0Q1mi8CVDCPCWyckQ91gvAjOW9qzwHwi
+3gMVfaEGARbTTmmznFY/Zr6ifTkJdyZRQ3waK1bNyrI=
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc –a -d-in message.enc -out decrypted_letter.txt
+aes-256-cbc: Extra option: "–a"
+aes-256-cbc: Use -help for summary.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc –a-d-in message.enc -out decrypted_letter.txt 
+aes-256-cbc: Extra option: "–a-d-in"
+aes-256-cbc: Use -help for summary.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc –a -d -in message.enc -out decrypted_letter.txt
+aes-256-cbc: Extra option: "–a"
+aes-256-cbc: Use -help for summary.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc–a -d-in message.enc -out decrypted_letter.txt 
+Invalid command 'aes-256-cbc–a'; type "help" for a list.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbcb –a-d -in message.enc -out decrypted_letter.txt
+Invalid command 'aes-256-cbcb'; type "help" for a list.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ openssl aes-256-cbc -a -d -in message.enc -out decrypted_letter.txt
+enter AES-256-CBC decryption password:
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ cat decrypted_letter.txt
+Hi Grandma,
+
+I am writing this letter to thank you for the chocolate chipcookies you sent me. I got them this morning and I have already eaten half ofthe box! They are absolutely delicious!
+
+I wish you all the best. Love,
+
+Your cookie-eater grandchild.
+                                                                             
+┌──(codex㉿kali)-[~/Holmes/EncDec]
+└─$ mousepad LabEncryptingandDecryptingDataUsingOpenSSL.txt 
+
