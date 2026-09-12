@@ -1,0 +1,837 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article ef04a9bd-5433-4f4c-86aa-65452c165acf remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$511534552$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$511534552$-->
+      <div class="article__title ">
+        <!--?lit$511534552$--><heading-view aria-hidden="true" id="ef04a9bd-5433-4f4c-86aa-65452c165acf-heading-view" headingtitle="Lab - Use Steganography to Hide Data" modelid="ef04a9bd-5433-4f4c-86aa-65452c165acf" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$511534552$-->Incomplete &nbsp;<!--?lit$511534552$-->Lab - Use Steganography to Hide Data</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$511534552$-->Incomplete </span>
+          <!--?lit$511534552$-->Lab - Use Steganography to Hide Data
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$511534552$--><!---->
+                                    <block-view modelid="fb2a4474-6d13-4265-b279-70efbb001853" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="fb2a4474-6d13-4265-b279-70efbb001853" class="fb2a4474-6d13-4265-b279-70efbb001853 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="fb2a4474-6d13-4265-b279-70efbb001853" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="6d5b7089-7c96-46f5-8582-bf85a4a6b019" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6d5b7089-7c96-46f5-8582-bf85a4a6b019" class="component text 6d5b7089-7c96-46f5-8582-bf85a4a6b019  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h2>Objectives</h2> <p>Use steganography to hide a document within a JPEG file.</p> <h2>Background / Scenario</h2> <p>The advantage of steganography over cryptography is that the secret message does not attract any special attention. No one would ever know that a picture contained a secret message by viewing the file either electronically or in hardcopy. In this lab, you will use Steghide, an open-source steganography program, to hide a data file within an image file.</p> <h2>Required Resources</h2> <p>PC with the <b>CSE-LABVM</b> installed in VirtualBox</p> <h2>Instructions</h2> <h3>Step 1: Open a terminal window in the CSE-LABVM.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Launch the <b>CSE-LABVM</b>.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Double-click the <b>Terminal</b> icon to open a terminal.</p> <h3>Step 2: Review the files that will be used for steganography.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Enter the <b>cd Downloads/</b> command to change to the <b>Downloads</b> directory, and then list the contents of the directory.</p> <p class="CMD">cisco@labvm:~$ <b>cd Downloads/</b> </p><p>cisco@labvm:~/Downloads$ <b>ls -l</b></p><p>total 472</p><p>drwxr-xr-x 8 cisco cisco&nbsp;&nbsp; 4096 Jan 27 01:30 jcryptool</p><p>drwxrwxr-x 3 cisco cisco&nbsp;&nbsp; 4096 Mar 18 18:11 john</p><p>-rw-rw-rw- 1 cisco cisco 455357 Mar 22 16:10 <span><mark>keyboard.jpg</mark></span></p><p>drwxrwxr-x 6 root&nbsp; root&nbsp;&nbsp;&nbsp; 4096 Mar 18 17:46 lynis</p><p>-rw-rw-r-- 1 cisco cisco&nbsp;&nbsp; 9912 Mar 22 16:13 <span><mark>secret.odt</mark></span></p><p>cisco@labvm:~/Downloads$</p><p></p> <p>You will hide the contents of the secret.odt file inside the keyboard.jpg file.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Enter the <b>libreoffice secret.odt &amp;</b> command to open the "secret.odt"file in LibreOffice. </p> <p class="CMD">cisco@labvm:~/Downloads$ <b>libreoffice secret.odt &amp;</b></p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="591ad4f4-eafe-4464-af0a-a479a0896ee6" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="591ad4f4-eafe-4464-af0a-a479a0896ee6" class="591ad4f4-eafe-4464-af0a-a479a0896ee6 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="591ad4f4-eafe-4464-af0a-a479a0896ee6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="cf3422f6-a75e-4975-b7f0-a0ce109d9753" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="cf3422f6-a75e-4975-b7f0-a0ce109d9753" class="component opentextbox cf3422f6-a75e-4975-b7f0-a0ce109d9753  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="cf3422f6-a75e-4975-b7f0-a0ce109d9753" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">What is the message in the <b>secret.odt</b>?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->The secret document
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ad7520ab-4f68-4ba1-9264-b7b9d24baf55" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="ad7520ab-4f68-4ba1-9264-b7b9d24baf55" class="ad7520ab-4f68-4ba1-9264-b7b9d24baf55 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ad7520ab-4f68-4ba1-9264-b7b9d24baf55" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="f1c08457-ced9-4a11-96ef-c7a3a3ab7513" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="f1c08457-ced9-4a11-96ef-c7a3a3ab7513" class="component text f1c08457-ced9-4a11-96ef-c7a3a3ab7513  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Click <b>File</b> &gt; <b>Exit LibreOffice</b> to quit LibreOffice and close the file.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>In the terminal window, press <b>Enter</b> to get a new command prompt, and the enter command <b>gimp keyboard.jpg &amp;</b> to open the "keyboard.jpg"file in GIMP. </p> <p class="CMD">cisco@labvm:~/Downloads$ <b>gimp keyboard.jpg &amp;</b></p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>Click <b>File</b> &gt; <b>Quit</b> to quit GIMP and close the file.</p> <p class="SubStepAlpha"><span>f.</span><span>&nbsp;&nbsp;</span>In the terminal window, press <b>Enter</b> to get a new command prompt.</p> <h3>Step 3: Use Steghide to embed the content of the secret.odt file inside the keyboard.jpg file.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>At the command prompt, enter the following <b>steghide</b> command. When prompted for a passphrase, use <b>Cisco</b>. Re-enter the passphrase when prompted.</p> <p class="CMD">cisco@labvm:~/Downloads$ <b>steghide embed -cf keyboard.jpg -efsecret.odt</b> </p><p>Enter passphrase: <b>Cisco</b></p><p>Re-Enter passphrase: <b>Cisco</b></p><p>embedding "secret.odt" in "keyboard.jpg"...done</p><p>cisco@labvm:~/Downloads$</p><p></p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Open the files, <b>secret.odt</b> and <b>keyboard.jpg</b>.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="65450ee3-562c-441d-9332-d5984f2fd427" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="65450ee3-562c-441d-9332-d5984f2fd427" class="65450ee3-562c-441d-9332-d5984f2fd427 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="65450ee3-562c-441d-9332-d5984f2fd427" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="5ca22a0b-a05f-4ac3-a0d9-afc2a1a0d479" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="5ca22a0b-a05f-4ac3-a0d9-afc2a1a0d479" class="component opentextbox 5ca22a0b-a05f-4ac3-a0d9-afc2a1a0d479  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="5ca22a0b-a05f-4ac3-a0d9-afc2a1a0d479" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Did these files change?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->No. The files did not change.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="51601f11-66fc-40c4-9580-0860d143a2aa" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="51601f11-66fc-40c4-9580-0860d143a2aa" class="51601f11-66fc-40c4-9580-0860d143a2aa block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="51601f11-66fc-40c4-9580-0860d143a2aa" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="65f3756a-46c2-4c5b-9ffb-bbde4222b3e7" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="65f3756a-46c2-4c5b-9ffb-bbde4222b3e7" class="component text 65f3756a-46c2-4c5b-9ffb-bbde4222b3e7  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Step 4: Verify the secret.odt is hidden in the keyboard.jpg file.</h3> <p>Enter the <b>steghide info keyboard.jpg</b> command, type <b>y</b> at the prompt, and enter the passphrase <b>Cisco</b>, and then press <b>Enter</b>.</p> <p class="CMD">cisco@labvm:~/Downloads$ <b>steghide info keyboard.jpg</b> </p><p>"keyboard.jpg":</p><p>&nbsp; format: jpeg</p><p>&nbsp; capacity: 26.6 KB</p><p>Try to get information about embedded data ? (y/n) <b>y</b></p><p>Enter passphrase: <b>Cisco</b></p><p>&nbsp; embedded file "secret.odt":</p><p>&nbsp;&nbsp;&nbsp; size: 9.7 KB</p><p>&nbsp;&nbsp;&nbsp; encrypted: rijndael-128, cbc</p><p>&nbsp;&nbsp;&nbsp; compressed: yes</p><p>cisco@labvm:~/Downloads$</p><p></p> <h3>Step 5: Extract the secret.odt file from the keyboard.jpg file.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Enter the <b>steghide extract -sf keyboard.jpg</b> command, enter the passphrase Cisco, and then type <b>y</b> at the prompt.</p> <p class="CMD">cisco@labvm:~/Downloads$ <b>steghide extract -sf keyboard.jpg</b> </p><p>Enter passphrase: <b>Cisco</b></p><p>the file "secret.odt" does already exist.overwrite ? (y/n) <b>y</b></p><p>wrote extracted data to "secret.odt".</p><p>cisco@labvm:~/Downloads$</p><p></p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Open the extracted <b>secret.odt</b> file with LibreOffice.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="32d7774f-a566-4bdd-a0df-d321e233616d" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 16.6667%;"><!---->
+                
+                <div data-socialgoodpulse-id="32d7774f-a566-4bdd-a0df-d321e233616d" class="32d7774f-a566-4bdd-a0df-d321e233616d block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="32d7774f-a566-4bdd-a0df-d321e233616d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="b2216153-5b76-4aa7-9745-392f7d4d4521" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="b2216153-5b76-4aa7-9745-392f7d4d4521" class="component opentextbox b2216153-5b76-4aa7-9745-392f7d4d4521  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="b2216153-5b76-4aa7-9745-392f7d4d4521" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Could you open the file? Is the secret message the same as before?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->The file can be opened, and the message is the same as before.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$511534552$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$511534552$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$511534552$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$511534552$-->Clear My Responses</button>         
+            </div>
+            <!--?lit$511534552$--><hr>
+            <!--?lit$511534552$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$511534552$--><span> <span style=" padding-right: 5px; float: left; font-family: arial; font-size: 12px; ">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>
