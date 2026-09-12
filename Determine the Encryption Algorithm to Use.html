@@ -1,0 +1,1487 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article d1a6365b-4a13-49bd-a642-3e7d407c9c38 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$511534552$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$511534552$-->
+      <div class="article__title ">
+        <!--?lit$511534552$--><heading-view aria-hidden="true" id="d1a6365b-4a13-49bd-a642-3e7d407c9c38-heading-view" headingtitle="Lab - Determine the Encryption Algorithm to Use" modelid="d1a6365b-4a13-49bd-a642-3e7d407c9c38" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$511534552$-->Incomplete &nbsp;<!--?lit$511534552$-->Lab - Determine the Encryption Algorithm to Use</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$511534552$-->Incomplete </span>
+          <!--?lit$511534552$-->Lab - Determine the Encryption Algorithm to Use
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$511534552$--><!---->
+                                    <block-view modelid="b7652a0d-2ebb-41ff-b3ca-7109cefe2e56" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="b7652a0d-2ebb-41ff-b3ca-7109cefe2e56" class="b7652a0d-2ebb-41ff-b3ca-7109cefe2e56 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b7652a0d-2ebb-41ff-b3ca-7109cefe2e56" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="13ad8f0a-d8f9-4fc8-9ba3-fa6581234b3b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="13ad8f0a-d8f9-4fc8-9ba3-fa6581234b3b" class="component text 13ad8f0a-d8f9-4fc8-9ba3-fa6581234b3b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h2>Objectives</h2> <p><b>Part 1: Secure Personal Data</b></p> <p><b>Part 2: Secure Wireless Data</b></p> <p><b>Part 3: Secure Corporate Data Between Sites</b></p> <h2>Background / Scenario</h2> <p>The internet is used for a variety of reasons including work, play, entertainment, and more. There are multiple protocols, algorithms, and methods available to secure online access.</p> <p>This lab includes three scenarios. In each scenario, you will complete some steps and then do some internet research to answer questions, including what is the best encryption algorithm for each scenario.</p> <h2>Required Resources</h2> <ul><li>A Windows PC with internet access</li></ul> <h2>Instructions</h2> <h3>Part 1: Secure Personal Data</h3> <p>In this scenario, you are a student using a shared computer. You would like to save some confidential information on this computer but you do not want others to access that data. </p> <h3>Step 1: Create a text file.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Open <b>File Explorer</b> by searching for it or by using the <b>WindowsKey + E</b> keyboard combination.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Navigate to a working location and create a new folder with a name of your choice.</p> <p><b>Note</b>: To show file extensions, click <b>View</b>&gt; <b>Options</b>. In the <b>Folder Options</b> window, click the <b>View</b> tab, and then uncheck <b>Hide extensions for known file types</b>.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Inside the folder, right click in the empty space and click <b>New</b>&gt; <b>Text Document</b>.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Change the name to <b>File-1.txt</b>, and then double-click it to open the file. </p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>Enter some text, such as "This is a test.", and then save and close the file.</p> <h3>Step 2: Discuss how could you protect this file.</h3> <p>Assume that you must somehow protect this file from being read, stolen, or altered.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8447a810-2c36-4913-ac36-b0a67be72989" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="8447a810-2c36-4913-ac36-b0a67be72989" class="8447a810-2c36-4913-ac36-b0a67be72989 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8447a810-2c36-4913-ac36-b0a67be72989" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="4da73715-feb4-4cb7-bd78-ed906e895af8" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="4da73715-feb4-4cb7-bd78-ed906e895af8" class="component opentextbox 4da73715-feb4-4cb7-bd78-ed906e895af8  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="4da73715-feb4-4cb7-bd78-ed906e895af8" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">How could you do that?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->You could use a program to password protect the file. Compression programs such as 7-Zip provide the option to compress and encrypt files.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="1efed114-291b-429f-a7bf-1a5e9877bb25" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="1efed114-291b-429f-a7bf-1a5e9877bb25" class="1efed114-291b-429f-a7bf-1a5e9877bb25 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1efed114-291b-429f-a7bf-1a5e9877bb25" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="582b4357-b449-4689-8d40-f437bffe5db7" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="582b4357-b449-4689-8d40-f437bffe5db7" class="component opentextbox 582b4357-b449-4689-8d40-f437bffe5db7  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="582b4357-b449-4689-8d40-f437bffe5db7" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Which encryption algorithm (i.e., DES, 3DES, or AES) should you use if you were able to encrypt the file?&nbsp; Why?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->AES provides the strongest encryption compared to DES and 3DES. It should be used to guarantee that the file is securely protected.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="4ab88039-a549-4d0b-b9c8-272963620932" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="4ab88039-a549-4d0b-b9c8-272963620932" class="4ab88039-a549-4d0b-b9c8-272963620932 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="4ab88039-a549-4d0b-b9c8-272963620932" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="8e233ce1-28e1-4bde-bb6d-9fbe2ab69c8e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="8e233ce1-28e1-4bde-bb6d-9fbe2ab69c8e" class="component text 8e233ce1-28e1-4bde-bb6d-9fbe2ab69c8e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Step 3: Download and install 7-Zip.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Search the internet for "7-Zip download" and download this free, open source compression program.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Install 7-Zip.</p> <h3>Step 4: Inspect 7-Zip archive formats and encryption methods.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>From the <b>File Explorer</b> window,<b> right-click</b> your <b>File-1.txt</b> and select <b>7-Zip</b> &gt; <b>Add to archive…</b></p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>In the dropdown menu next to Archive format:, choose the zip format.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>7-Zip provides two encryption methods for the <b>zip</b> format. <b>ZipCrypto</b> is one method.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="427d98fd-11e1-4b19-9d38-fdd5cfbab6e6" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="427d98fd-11e1-4b19-9d38-fdd5cfbab6e6" class="427d98fd-11e1-4b19-9d38-fdd5cfbab6e6 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="427d98fd-11e1-4b19-9d38-fdd5cfbab6e6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="2d294e6f-d198-43d0-a403-6381e7465608" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="2d294e6f-d198-43d0-a403-6381e7465608" class="component opentextbox 2d294e6f-d198-43d0-a403-6381e7465608  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="2d294e6f-d198-43d0-a403-6381e7465608" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">What is the other method?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->The other encryption method is AES-256
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3e18032e-d44a-4ae6-8324-b4cc347c96c1" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="3e18032e-d44a-4ae6-8324-b4cc347c96c1" class="3e18032e-d44a-4ae6-8324-b4cc347c96c1 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3e18032e-d44a-4ae6-8324-b4cc347c96c1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="405141ff-643c-4ca3-9be2-a3c66c943b76" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="405141ff-643c-4ca3-9be2-a3c66c943b76" class="component opentextbox 405141ff-643c-4ca3-9be2-a3c66c943b76  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="405141ff-643c-4ca3-9be2-a3c66c943b76" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">What are the differences between each method? (<b>Hint</b>: Refer to <b>Help</b>).</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->7-Zip can compress a file using the 7z format or the ZIP format. The 7z format only supports AES-256 while the ZIP format supports ZipCrypto or AES-256. Use ZipCrypto if you want to get archive compatible with most of the ZIP archivers.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="4241a2ec-5df2-4691-82a8-84cc52b57597" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="4241a2ec-5df2-4691-82a8-84cc52b57597" class="4241a2ec-5df2-4691-82a8-84cc52b57597 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="4241a2ec-5df2-4691-82a8-84cc52b57597" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="8e8e0448-dad5-40e7-890f-e963ba413dbb" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="8e8e0448-dad5-40e7-890f-e963ba413dbb" class="component opentextbox 8e8e0448-dad5-40e7-890f-e963ba413dbb  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="8e8e0448-dad5-40e7-890f-e963ba413dbb" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Which method should you use if you wanted to have the strongest encryption?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$-->AES-256 provides stronger encryption, but is not as widely supported.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="f1c865ef-cea1-4873-ac0d-8213437b1319" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="f1c865ef-cea1-4873-ac0d-8213437b1319" class="f1c865ef-cea1-4873-ac0d-8213437b1319 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f1c865ef-cea1-4873-ac0d-8213437b1319" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="3f7f45b0-4ef0-4582-8071-6d3b6382d43e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="3f7f45b0-4ef0-4582-8071-6d3b6382d43e" class="component text 3f7f45b0-4ef0-4582-8071-6d3b6382d43e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Step 5: Compress and encrypt File-1.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>With the <b>Add to Archive</b> window still open, enter a password of your choice in the <b>Enter password</b> field. </p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Click <b>OK</b> to compress and encrypt the file. This creates a new archived file named <b>File-1.zip</b>. </p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>To permanently delete the original file, click it and press <b>Shift-Delete</b>. You will be prompted to permanently delete the file. Click <b>Yes</b>.</p> <h3>Step 6: Decrypt the encrypted and compressed File-1.zip.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>With <b>File Explorer</b> still open, right-click <b>File-1.zip</b>, and then choose <b>7-Zip</b> &gt; <b>Extract Here</b>. </p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>The <b>Enter password</b> window opens. Enter your password to decrypt <b>File-1.txt</b>, and then click OK.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Open the <b>File-1.txt</b> to verify that your original message is there.</p> <h3>Part 2: Secure Wireless Data</h3> <p>In this scenario, you have a small homebased business providing IT support to local citizens. A new client has requested that you set them up with the best wireless access. Specifically, they have:</p> <ul><li>A large three-story 5,000 square foot home.</li><li>Multiple older and newer personal devices including smart phones, tablets, computers, smart televisions, Oculus 2, printer, and more.</li><li>Four newer Wi-Fi 6 (802.11ax) enabled devices.</li></ul> <p>After some research, you decide to recommend the LinksysAtlas Pro 6, Dual-Band Mesh Wi-Fi 6 System 3-Pack system. This system should support the listed devices and provide the required wireless security.</p> <p>Wi-Fi routers usually provide several security options to encrypt wireless data. Which encryption option should you use in this scenario?</p> <h3>Step 1: Research the Linksys Wireless router</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Search the internet for the "Linksys Atlas Pro 6, Dual-Band Mesh Wi-Fi6 System". Your search will provide many possible links. However, choose the link provided by <b>linksys.com</b>. </p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Review the features of the router to see if it would meet the required specifications.</p> <h3>Step 2: Research the Security Options</h3> <p>The Linksys Atlas system provides three security features.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ede44be0-0aaf-4c5a-a4f2-9ecb20b4ab43" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="ede44be0-0aaf-4c5a-a4f2-9ecb20b4ab43" class="ede44be0-0aaf-4c5a-a4f2-9ecb20b4ab43 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ede44be0-0aaf-4c5a-a4f2-9ecb20b4ab43" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="b2a84f95-aca3-4337-bb78-7d13647eccb9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="b2a84f95-aca3-4337-bb78-7d13647eccb9" class="component opentextbox b2a84f95-aca3-4337-bb78-7d13647eccb9  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="b2a84f95-aca3-4337-bb78-7d13647eccb9" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">What are the security features available with this system?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$--><p><span>Security Features available are:</span></p><ul> <li>WPA2/WPA3 Mixed Personal</li> <li>WPA2 Personal</li> <li>WPA3 Personal</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b983b315-e402-425a-981e-e1e346e91719" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="b983b315-e402-425a-981e-e1e346e91719" class="b983b315-e402-425a-981e-e1e346e91719 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b983b315-e402-425a-981e-e1e346e91719" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="d8b3b6a4-c6ff-42db-ba67-6dd708e1849b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="d8b3b6a4-c6ff-42db-ba67-6dd708e1849b" class="component opentextbox d8b3b6a4-c6ff-42db-ba67-6dd708e1849b  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="d8b3b6a4-c6ff-42db-ba67-6dd708e1849b" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Which security option should these clients use?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$--><p>WPA2/WPA3 Mixed Personal: Recommended for home use ONLY if all nodes are up-to-date with firmware that supports WPA2/WPA3 Mixed Mode.&nbsp;It uses WPA3 with AES encryption when possible, WPA2 with AES encryption for older devices.&nbsp;Some devices may not be able to connect at all.</p><p>WPA3 Personal: Older devices will not be able to connect.</p><p>WPA2 Personal: Recommended for home use.&nbsp;Users connect using a password and AES encryption.</p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="060cf69d-e41e-4cad-9411-6a3c3cc47bba" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="060cf69d-e41e-4cad-9411-6a3c3cc47bba" class="060cf69d-e41e-4cad-9411-6a3c3cc47bba block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="060cf69d-e41e-4cad-9411-6a3c3cc47bba" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="d55dae35-5da9-429a-8040-b17e50e2fd6b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="d55dae35-5da9-429a-8040-b17e50e2fd6b" class="component text d55dae35-5da9-429a-8040-b17e50e2fd6b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Part 3: Secure Corporate Data Between Sites</h3> <p>In this scenario, you are working for a small multi-site organization that is interconnected across the public internet. It is crucial that corporate data between the sites be secured as it travels over the internet. </p> <p>Virtual Private Networks (VPNs) are commonly used between branch and central sites to secure data and guarantee origin authentication. The organization is using Cisco Integrated Series Routers (ISRs) to support site-to-site IPsec VPNs between sites. Internet Protocol Security or IPsec is a framework that lets you specify which encryption, authentication, and integrity mechanism to use. </p> <p>In this part, you are tasked with recommending the best encryption and authentication algorithms to implement on the Cisco ISR 4321using IOS XE 17. To do so, you will research various protocols supported by IPsec VPNs.</p> <h3>Step 1: Research IPsec Encryption Algorithms</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Perform an internet search on “Security for VPNs with IPsec Configuration Guide, Cisco IOS XE 17”.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Choose the first link from <b>cisco.com</b> to open the <b>Book Table ofContents</b>.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Click the <b>Configuring Security for VPNs with IPsec</b> link.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Scroll down to the <b>Supported Standards</b> to answer the following questions.</p></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="83fd34bf-f5f8-42e8-bb3b-4a88d89d6c10" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="83fd34bf-f5f8-42e8-bb3b-4a88d89d6c10" class="83fd34bf-f5f8-42e8-bb3b-4a88d89d6c10 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="83fd34bf-f5f8-42e8-bb3b-4a88d89d6c10" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="751a002b-06eb-4a26-8678-c853fda18a2c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="751a002b-06eb-4a26-8678-c853fda18a2c" class="component opentextbox 751a002b-06eb-4a26-8678-c853fda18a2c  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="751a002b-06eb-4a26-8678-c853fda18a2c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">Which cryptographic encryption algorithms are supported by IPsec VPNs?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$--><p><span>Encryption algorithms supported by IPsec VPNs include: </span></p><ul> <li>Advanced Encryption Standard (AES)</li> <li>DES Algorithm</li> <li>Triple DES (3DES) Algorithm</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b8f9029d-f8ad-4b16-ad56-d9213a2e1002" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="b8f9029d-f8ad-4b16-ad56-d9213a2e1002" class="b8f9029d-f8ad-4b16-ad56-d9213a2e1002 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b8f9029d-f8ad-4b16-ad56-d9213a2e1002" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="8921e03f-289f-4a25-b693-572aa07eb6f1" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="8921e03f-289f-4a25-b693-572aa07eb6f1" class="component text 8921e03f-289f-4a25-b693-572aa07eb6f1  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Step 2: Research IPsec Authentication and Integrity Algorithms</h3></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3a86543a-e47a-44a5-a2de-96cb243665b2" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="3a86543a-e47a-44a5-a2de-96cb243665b2" class="3a86543a-e47a-44a5-a2de-96cb243665b2 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3a86543a-e47a-44a5-a2de-96cb243665b2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="e98f7a10-d189-469c-b86a-2271b49b0d9e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="e98f7a10-d189-469c-b86a-2271b49b0d9e" class="component opentextbox e98f7a10-d189-469c-b86a-2271b49b0d9e  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="e98f7a10-d189-469c-b86a-2271b49b0d9e" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">In the <b>Supported Standards</b> section, which hashing algorithms are used to authenticate data and verify integrity?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$--><p><span>Encryption algorithms supported by IPsec VPNs include: </span></p><ul> <li>Secure Hash Algorithm (SHA-2) and SHA-1 Algorithm</li> <li>Message Digest Algorithm 5 (MD5)</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="30826c53-9609-4182-b043-3c321f571ad8" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="30826c53-9609-4182-b043-3c321f571ad8" class="30826c53-9609-4182-b043-3c321f571ad8 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="30826c53-9609-4182-b043-3c321f571ad8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><text-view modelid="966cc76e-b2f3-493a-bcfc-a61ffe72e8f7" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="966cc76e-b2f3-493a-bcfc-a61ffe72e8f7" class="component text 966cc76e-b2f3-493a-bcfc-a61ffe72e8f7  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$511534552$--><h3>Step 3: Recommend an Encryption and Authentication Algorithm</h3></div>
+        </div>
+      </div>
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5bf9d067-258b-4f79-938e-0b2065a39724" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 6.25%;"><!---->
+                
+                <div data-socialgoodpulse-id="5bf9d067-258b-4f79-938e-0b2065a39724" class="5bf9d067-258b-4f79-938e-0b2065a39724 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5bf9d067-258b-4f79-938e-0b2065a39724" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$511534552$--><!----><opentextbox-view modelid="501e743e-59f9-4bba-9fb9-50e67386c66f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="501e743e-59f9-4bba-9fb9-50e67386c66f" class="component opentextbox 501e743e-59f9-4bba-9fb9-50e67386c66f  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="501e743e-59f9-4bba-9fb9-50e67386c66f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+            <!--?lit$511534552$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$511534552$--> <div class="openTextBox__preText"><!--?lit$511534552$--><p class="BodyTextL25">To satisfy the needs of the corporation,which encryption algorithm and hashing algorithm should you recommend to ensure adequate protection for data traversing the internet?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$511534552$--><!--?lit$511534552$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$511534552$-->
+                      <!--?lit$511534552$--><p><span>IPsec Site-to-Site VPNs typically would require </span></p><ul> <li>Encryption: AES or its variants (i.e., AES-128, AES-192, or AES-256)</li> <li>Authentication and integrity: SHA-2 or its variants (i.e., SHA-256, SHA-384, or SHA-512)</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$511534552$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$511534552$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$511534552$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$511534552$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$511534552$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$511534552$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$511534552$-->Clear My Responses</button>         
+            </div>
+            <!--?lit$511534552$--><hr>
+            <!--?lit$511534552$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$511534552$--><span> <span style=" padding-right: 5px; float: left; font-family: arial; font-size: 12px; ">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>
